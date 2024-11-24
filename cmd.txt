@@ -1,0 +1,9 @@
+detectnet --model=models/batch/ssd-mobilenet1.onnx --labels=models/batch/labels.txt --input-blob=input_0 --output-cvg=scores --output-bbox=boxes /jetson-inference/data/images/test/test2.mp4 /jetson-inference/data/images/test/test2_ssd_v1.mp4
+
+docker/run.sh --volume /home/jetson/jetson-inference/datn:/jetson-inference/datn
+
+cd datn
+
+pip install pyserial
+
+python3 custom.py
