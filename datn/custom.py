@@ -70,8 +70,8 @@ while True:
         stop += 1
         if stop >= 20:
              stop = 20
-             print('stop')
              if not stop_flag:
+                print('stop')
                 write(str(class_id))
                 stop_flag = True
     elif class_id == 1:
@@ -80,8 +80,8 @@ while True:
         fw += 1
         if fw >= 20:
              fw = 20
-             print('fw')
              if not fw_flag:
+                print('fw')
                 write(str(class_id))
                 fw_flag = True
     elif class_id == 3:
@@ -90,8 +90,8 @@ while True:
         bw += 1
         if bw >= 20:
              bw = 20
-             print('bw')
              if not bw_flag:
+                print('bw')
                 write(str(class_id))
                 bw_flag = True
     elif class_id == 2:
@@ -100,8 +100,8 @@ while True:
         left += 1
         if left >= 20:
              left = 20
-             print('left')
              if not left_flag:
+                print('left')
                 write(str(class_id))
                 left_flag = True
     else:
@@ -110,8 +110,8 @@ while True:
         right += 1
         if right >= 20:
              right = 20
-             print('right')
              if not right_flag:
+                print('right')
                 write(str(class_id))
                 right_flag = True
     font.OverlayText(imgCropped, text=f"{confidence:05.2f}% {classLabel}", 
@@ -125,7 +125,7 @@ while True:
     output.SetStatus("{:s} | Network {:.0f} FPS".format(net.GetNetworkName(), net.GetNetworkFPS()))
 
     # print out performance info
-    # net.PrintProfilerTimes()
+    net.PrintProfilerTimes()
 
     # exit on input/output EOS
     if not input.IsStreaming() or not output.IsStreaming():

@@ -37,14 +37,15 @@ void setup() {
 
 void loop()
 { 
+  //while (!Serial.available()) {};
   toggleSwitch.loop();
   int state = toggleSwitch.getState();
   if (state == LOW)
   {
     while (Serial.available() and state == LOW)
     {
+      delay(30);
       x = Serial.readString().toInt();
-      Serial.println(x);
       if (x == 0 or x == 4)
       {
         xAxis = 517;
@@ -74,16 +75,11 @@ void loop()
   }
   else
   {
-    Serial.println("manu");
     xAxis = analogRead(VRX_PIN);
     yAxis = analogRead(VRY_PIN);
   }
 
-  delay(50);
-  Serial.print("x = ");
-  Serial.print(xAxis);
-  Serial.print(", y = ");
-  Serial.println(yAxis);
+  delay(100);
 
   // If joystick stays in middle the motors are not moving
   if (yAxis > 500 && yAxis <530 && xAxis > 500 && xAxis <530) Stop();
